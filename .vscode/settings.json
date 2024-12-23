@@ -3,7 +3,7 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"files.eol": "\n",
 	"editor.tabSize": 2,
-	"editor.insertSpaces": false,
+	"editor.insertSpaces": true,
 	"editor.formatOnType": true, // Automatically formats code after you type
 	"editor.formatOnPaste": true, // Automatically formats code when you paste
 	"editor.codeActionsOnSave": {

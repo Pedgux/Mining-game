@@ -26,8 +26,8 @@
 			function resizeCanvas() {
 				worldCanvas.width = window.innerWidth;
 				worldCanvas.height = window.innerHeight;
-				ctx.fillStyle = "black"; // Ensure a fill style is set
-				ctx.fillRect(10, 10, 10, 10);
+				ctx.fillStyle = "black";
+				ctx.fillRect(0, 0, worldCanvas.width, worldCanvas.height);
 			}
 			resizeCanvas();
 			window.addEventListener("resize", resizeCanvas);

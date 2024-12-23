@@ -19,17 +19,15 @@
 	<body>
 		<canvas id="worldCanvas"></canvas>
 		<script>
-			const canvas = document.getElementById("gameCanvas");
-			const ctx = canvas.getContext("2d");
+			const worldCanvas = document.getElementById("worldCanvas");
+			const ctx = worldCanvas.getContext("2d");
 
 			// Function to resize the canvas
 			function resizeCanvas() {
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
-
-				// Optional: Clear the canvas or redraw here
-				ctx.fillStyle = "skyblue";
-				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				worldCanvas.width = window.innerWidth;
+				worldCanvas.height = window.innerHeight;
+				ctx.fillStyle = "black"; // Ensure a fill style is set
+				ctx.fillRect(10, 10, 10, 10);
 			}
 			resizeCanvas();
 			window.addEventListener("resize", resizeCanvas);

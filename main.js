@@ -7,4 +7,3 @@ ctx.fillRect(10, 10, 10, 10);
 
 let waa;
 waa == "funny";
-

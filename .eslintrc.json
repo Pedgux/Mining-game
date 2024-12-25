@@ -2,7 +2,8 @@
   "extends": ["eslint:recommended", "prettier"],
   "rules": {
     "no-unused-vars": "off",
-    "no-empty": "off"
+    "no-empty": "off",
+    "arrow-parens": ["error", "always"]
   },
   "env": {
     "es6": true,

@@ -1,37 +1,23 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Javascriptiä apua</title>
-		<style>
-			body,
-			html {
-				margin: 0;
-				padding: 0;
-				overflow: hidden; /* Prevent scrolling */
-			}
-			canvas {
-				display: block; /* Removes extra space caused by inline-block */
-			}
-		</style>
-	</head>
-	<body>
-		<canvas id="worldCanvas"></canvas>
-		<script>
-			const worldCanvas = document.getElementById("worldCanvas");
-			const ctx = worldCanvas.getContext("2d");
-
-			// Function to resize the canvas
-			function resizeCanvas() {
-				worldCanvas.width = window.innerWidth;
-				worldCanvas.height = window.innerHeight;
-				ctx.fillStyle = "black";
-				ctx.fillRect(0, 0, worldCanvas.width, worldCanvas.height);
-			}
-			resizeCanvas();
-			window.addEventListener("resize", resizeCanvas);
-		</script>
-		<script src="main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascriptiä apua</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrolling */
+      }
+      canvas {
+        display: block; /* Removes extra space caused by inline-block */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="worldCanvas"></canvas>
+    <script src="main.js"></script>
+  </body>
 </html>

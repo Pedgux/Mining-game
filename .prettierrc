@@ -1,13 +1,13 @@
 {
-	"semi": true,
-	"singleQuote": false,
-	"tabWidth": 2,
-	"useTabs": false,
-	"printWidth": 80,
-	"arrowParens": "always",
-	"trailingComma": "all",
-	"jsxBracketSpacing": true,
-	"camelcase": "error",
-	"proseWrap": "preserve",
-	"endOfLine": "crlf"
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 80,
+  "arrowParens": "always",
+  "trailingComma": "all",
+  "jsxBracketSpacing": true,
+  "camelcase": "error",
+  "proseWrap": "preserve",
+  "endOfLine": "crlf"
 }

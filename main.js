@@ -3,7 +3,7 @@ const worldCanvas = /** @type {HTMLCanvasElement} */ (
 );
 const ctx = worldCanvas.getContext("2d");
 const size = 16; //cell size
-let timeStamp = 0;
+const gravityConstant = 0.1;
 
 function clearScreen(color) {
   ctx.fillStyle = color;
@@ -51,14 +51,17 @@ function drawGrid(grid) {
     }
   }
 }
-
+let previousTime = performance.now();
 function gameLoop(timeStamp) {
-  //update grid when kun tehty
-  player.update();
+  const deltaTime = Math.max(0, timeStamp - previousTime) / 1000 || 0;
+  previousTime = timeStamp;
+
+  //update grid tähä kun tehty
+  player.update(deltaTime);
 
   drawGrid(grid);
   player.draw();
-  requestAnimationFrame(() => gameLoop());
+  requestAnimationFrame(gameLoop);
 }
 
 resizeCanvas();
@@ -69,21 +72,33 @@ let player = {
   y: worldCanvas.height / 2,
   vx: 0,
   vy: 0,
+  speed: 100,
   width: size,
   height: size,
   color: "white",
 
-  update: function () {
-    this.x += this.vx;
-    this.y += this.vy;
+  update: function (dt) {
+    //apply gravity
+    this.vy += gravityConstant;
+    //position update
+    this.x += this.vx * this.speed * dt;
+    this.y += this.vy * this.speed * dt;
+
+    //debugaus kamaa
+    console.log("new update data yay");
+    console.log(`x: ${this.x}  y:  ${this.y}`);
+    console.log(`vx: ${this.vx}  vy:  ${this.vy}`);
+    console.log(`deltaTime = ${dt}`);
+    console.log(`worldCanvas width: ${worldCanvas.width / 2}`);
+    console.log(`worldCanvas height: ${worldCanvas.height / 2}`);
   },
   draw: function () {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.width, this.height);
   },
 };
-//self explanatory 1
-function handleKeydown(event) {
+
+function keydown(event) {
   switch (event.key) {
     case "w":
       player.vy = -1;
@@ -99,18 +114,14 @@ function handleKeydown(event) {
       break;
   }
 }
-//self explanatory 2
-function handleKeyup(event) {
+
+function keyup(event) {
   switch (event.key) {
     case "w":
-      player.vy = 0;
-      break;
     case "s":
       player.vy = 0;
       break;
     case "a":
-      player.vx = 0;
-      break;
     case "d":
       player.vx = 0;
       break;
@@ -118,6 +129,6 @@ function handleKeyup(event) {
 }
 
 //start the game
-window.addEventListener("keydown", handleKeydown);
-window.addEventListener("keyup", handleKeyup);
+window.addEventListener("keydown", keydown);
+window.addEventListener("keyup", keyup);
 gameLoop();
